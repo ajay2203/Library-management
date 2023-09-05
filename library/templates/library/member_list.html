@@ -1,0 +1,31 @@
+<!-- library/templates/library/member_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Member List</title>
+</head>
+<body>
+    <h1>Member List</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.email }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No members available</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

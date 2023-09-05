@@ -1,0 +1,61 @@
+<!-- library/templates/library/transaction_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction List</title>
+</head>
+<body>
+    <h1>Transaction List</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Member</th>
+                <th>Date Borrowed</th>
+                <th>Date Returned</th>
+                <th>Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.book.title }}</td>
+                    <td>{{ transaction.member.name }}</td>
+                    <td>{{ transaction.date_borrowed }}</td>
+                    <td>{{ transaction.date_returned }}</td>
+                    <td>{{ transaction.fees }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No transactions available</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.book.title }}</td>
+                    <td>{{ transaction.member.name }}</td>
+                    <td>{{ transaction.date_borrowed }}</td>
+                    <td>{{ transaction.date_returned }}</td>
+                    <td>{{ transaction.fees }}</td>
+                    <td>
+                        {% if not transaction.date_returned %}
+                            <a href="{% url 'return_book' transaction.id %}" class="btn btn-primary">Return</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">No transactions available</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+   
+    </table>
+  
+</body>
+</html>

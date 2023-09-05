@@ -1,0 +1,25 @@
+<!-- library/templates/library/book_search.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Search</title>
+</head>
+<body>
+    <h1>Book Search</h1>
+    
+    <form method="GET">
+        <input type="text" name="q" placeholder="Search by title or author" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    
+    <h2>Search Results for "{{ query }}"</h2>
+    
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.authors }}</li>
+        {% empty %}
+            <li>No books found</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

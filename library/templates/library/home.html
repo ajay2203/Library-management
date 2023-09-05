@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        /* Add CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007acc;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #007acc;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #007acc;
+            color: #fff;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Library Management System</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="{% url 'book_list' %}">View Books</a></li>
+            <li><a href="{% url 'member_list' %}">View Members</a></li>
+            <li><a href="{% url 'transaction_list' %}">View Transactions</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>About Us</h2>
+        <p>
+            We are here to provide you with easy access to the world of books. Our Library Management System allows you to explore a vast collection of books, manage members, and track transactions efficiently.
+        </p>
+
+        <h2>Services</h2>
+        <ul>
+            <li>Browse and search for books</li>
+            <li>Manage library members</li>
+            <li>Track book transactions</li>
+            <li>And much more...</li>
+        </ul>
+    </main>
+    
+    <footer>
+        &copy; 2023 Library Management System
+    </footer>
+</body>
+</html>

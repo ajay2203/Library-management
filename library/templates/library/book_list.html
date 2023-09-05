@@ -1,0 +1,50 @@
+<!-- library/templates/library/book_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.quantity }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No books available</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+         
+        <h2>Local Books</h2>
+            <ul>
+                {% for book in local_books %}
+                    <li>{{ book.title }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>External Books</h2>
+            <ul>
+                {% for book in external_data.message %}
+                    <li>{{ book.title }}</li>
+                {% endfor %}
+            </ul>
+
+    </table>
+</body>
+</html>

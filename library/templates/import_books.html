@@ -1,0 +1,29 @@
+<!-- library/templates/library/import_books.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import Books</title>
+</head>
+<body>
+    <h1>Import Books</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="page">Page:</label>
+        <input type="number" name="page" id="page" value="1"><br>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title"><br>
+        <label for="authors">Authors:</label>
+        <input type="text" name="authors" id="authors"><br>
+        <label for="isbn">ISBN:</label>
+        <input type="text" name="isbn" id="isbn"><br>
+        <label for="publisher">Publisher:</label>
+        <input type="text" name="publisher" id="publisher"><br>
+        <button type="submit">Import</button>
+    </form>
+    
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
